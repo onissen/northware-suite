@@ -1,5 +1,3 @@
-/* jshint esversion:6 */
-
 import { createContext, useContext, useEffect, useState } from 'react';
 import { getUserFromLocalCookie } from './auth';
 

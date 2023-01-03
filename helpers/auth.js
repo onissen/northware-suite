@@ -1,8 +1,6 @@
-/* jshint esversion: 6 */
-
 import Router from 'next/router';
 import Cookies from 'js-cookie';
-import fetcher from '../components/tutorial/NavAuth';
+import { fetcher } from '../components/tutorial/NavAuth';
 
 export const setToken = (data) => {
   if (typeof window === 'undefined') {
