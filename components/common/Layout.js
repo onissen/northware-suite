@@ -7,10 +7,9 @@ const logout = () => {
   unsetToken();
 };
 
-
-export default function Layout() {
+export default function Layout({children}) {
+  // Authentication
   const { user, loading} = useFetchUser();
-
   if (!user && !loading) {
     Router.push('/login');
   }
@@ -18,10 +17,10 @@ export default function Layout() {
     return('Sie werden weitergeleitet...');
   }
 
-
+  // Basic Page Layout
   return (
       <>
-          <h1>Hier Layout-Content</h1>
+          {/* Page content:*/}{children}
           {!loading &&
             (user ? (
               <>
