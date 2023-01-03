@@ -1,20 +1,9 @@
 /*jshint esversion: 9 */
 
 import { useState } from "react";
-import { setToken, unsetToken } from "../../helpers/auth";
-import { useFetchUser, UserProvider} from "../../helpers/authContext";
-
-// API Fetcher
-export async function fetcher(url, options = {}) {
-    let response;
-    if (!options) {
-      response = await fetch(url);
-    } else {
-      response = await fetch(url, options);
-    }
-    const data = await response.json();
-    return data;
-}
+import { fetcher } from "../../lib/api";
+import { setToken, unsetToken } from "../../lib/auth";
+import { useFetchUser, UserProvider} from "../../lib/authContext";
 
 const NavAuth = () => {
   const [data, setData] = useState({
