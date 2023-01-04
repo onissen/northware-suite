@@ -2,52 +2,53 @@
 
 import Head from "next/head";
 import { useFetchUser } from "../../lib/authContext";
+import styles from '../../styles/LoginForm.module.sass';
 
 export default function LoginForm(handleChange, handleSubmit) {
     const { user, loading} = useFetchUser();
     return (
-    <>
-        <Head>
-            <title>Login | Northware OfficeSuite</title>
-        </Head>
-        <body className="login-body">
-            {!loading && !user ? ( 
-                <form onSubmit={handleSubmit} className="form-inline">
-                <input
-                  type="text"
-                  name="identifier"
-                  onChange={handleChange}
-                  placeholder="Username"
-                  required
-                />
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  placeholder="Password"
-                  required
-                />
+    <main className={styles.loginBody}>
+      <div className={styles.loginBox}>
+        {!loading && !user ? (
+          <>
+              <h1 className='text-center'>Login</h1>
+              <form onSubmit={handleSubmit} className="">
+              <input
+                type="text"
+                name="identifier"
+                onChange={handleChange}
+                placeholder="Username"
+                required
+              />
+              <input
+                type="password"
+                name="password"
+                onChange={handleChange}
+                placeholder="Password"
+                required
+              />
 
-                <button
-                  type="submit"
-                >
-                  Login
-                </button>
-              </form>
-            ) : ('') }
-        
-            {!loading && (user ? (
-              <>
-                <span>Sie sind bereits eingeloggt.</span>
-                <a
-                    className="md:p-2 py-2 block hover:text-purple-400"
-                    onClick={logout}
-                    style={{ cursor: 'pointer' }}
-                >
-                    Logout
-                </a>
-              </>) : ('')) }
-        </body>
-    </>
+              <button
+                type="submit"
+              >
+                Login
+              </button>
+            </form>
+          </>
+          ) : ('') }
+      
+          {!loading && (user ? (
+            <>
+              <span>Sie sind bereits eingeloggt.</span>
+              <a
+                  className="md:p-2 py-2 block hover:text-purple-400"
+                  onClick={logout}
+                  style={{ cursor: 'pointer' }}
+              >
+                  Logout
+              </a>
+            </>) : ('')) }
+      </div>
+    </main>
     )
 }

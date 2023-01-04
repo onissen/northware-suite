@@ -5,6 +5,7 @@ import { setToken, unsetToken } from "../lib/auth";
 import { useFetchUser, UserProvider} from "../lib/authContext";
 import { fetcher } from "../lib/api";
 import LoginForm from "../components/specific/LoginForm";
+import Head from "next/head";
 
 const LoginPage = () => {
   const [data, setData] = useState({
@@ -41,7 +42,12 @@ const LoginPage = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   return (
-      <LoginForm />
+      <>
+        <Head>
+            <title>Login | Northware Cockpit</title>
+        </Head>
+        <LoginForm />
+      </>
     );
 };
 
