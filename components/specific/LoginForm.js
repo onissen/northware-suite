@@ -5,7 +5,7 @@ import styles from '../../styles/LoginForm.module.sass';
 import LoginBrand from "../micro-components/LoginBrand";
 
 
-export default function LoginForm(handleChange, handleSubmit) {
+export default function LoginForm(props) {
     const { user, loading} = useFetchUser();
     return (
     <main className={styles.loginBody}>
@@ -14,18 +14,18 @@ export default function LoginForm(handleChange, handleSubmit) {
         {!loading && !user ? (
           <>
               <h1 className='text-center'>Login</h1>
-              <form onSubmit={handleSubmit} className="">
+              <form onSubmit={props.handleSubmit} className="">
               <input
                 type="text"
                 name="identifier"
-                onChange={handleChange}
+                onChange={props.handleChange}
                 placeholder="Username"
                 required
               />
               <input
                 type="password"
                 name="password"
-                onChange={handleChange}
+                onChange={props.handleChange}
                 placeholder="Password"
                 required
               />

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { setToken, unsetToken } from "../lib/auth";
-import { useFetchUser, UserProvider} from "../lib/authContext";
+import { useFetchUser} from "../lib/authContext";
 import { fetcher } from "../lib/api";
 import LoginForm from "../components/specific/LoginForm";
 import Head from "next/head";
@@ -46,7 +46,7 @@ const LoginPage = () => {
         <Head>
             <title>Login | Northware Cockpit</title>
         </Head>
-        <LoginForm />
+        <LoginForm handleChange={handleChange} handleSubmit={handleSubmit}/>
       </>
     );
 };
