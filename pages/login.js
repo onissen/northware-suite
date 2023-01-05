@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import { setToken, unsetToken } from "../lib/auth";
-import { useFetchUser, UserProvider} from "../lib/authContext";
+import { useFetchUser} from "../lib/authContext";
 import { fetcher } from "../lib/api";
+import LoginForm from "../components/specific/LoginForm";
+import Head from "next/head";
 
-const NavAuth = () => {
+const LoginPage = () => {
   const [data, setData] = useState({
     identifier: '',
     password: '',
@@ -40,49 +42,13 @@ const NavAuth = () => {
     setData({ ...data, [e.target.name]: e.target.value });
   };
   return (
-        <UserProvider value={{user, loading}}>
-            {!loading && !user ? ( 
-                <form onSubmit={handleSubmit} className="form-inline">
-                <input
-                  type="text"
-                  name="identifier"
-                  onChange={handleChange}
-                  placeholder="Username"
-                  className="md:p-2 form-input py-2 rounded mx-2"
-                  required
-                />
-                <input
-                  type="password"
-                  name="password"
-                  onChange={handleChange}
-                  placeholder="Password"
-                  className="md:p-2 form-input py-2 rounded mx-2"
-                  required
-                />
-
-                <button
-                  className="md:p-2 rounded py-2 text-black bg-purple-200 p-2"
-                  type="submit"
-                >
-                  Login
-                </button>
-              </form>
-            ) : ('') }
-        
-        {!loading &&
-            (user ? (
-              <>
-                <span>Sie sind bereits eingeloggt.</span>
-                <a
-                    className="md:p-2 py-2 block hover:text-purple-400"
-                    onClick={logout}
-                    style={{ cursor: 'pointer' }}
-                >
-                    Logout
-                </a>
-              </>) : ('')) }
-        </UserProvider>
+      <>
+        <Head>
+            <title>Login | Northware Cockpit</title>
+        </Head>
+        <LoginForm handleChange={handleChange} handleSubmit={handleSubmit}/>
+      </>
     );
 };
 
-export default NavAuth;
+export default LoginPage;
