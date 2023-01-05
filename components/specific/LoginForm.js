@@ -12,31 +12,15 @@ export default function LoginForm(props) {
       <div className={styles.loginBox}>
         <LoginBrand brandIcon={faBriefcase} brandName='Northware Cockpit' bgClass='bg-cockpit' />
         {!loading && !user ? (
-          <>
-              <h1 className='text-center'>Login</h1>
-              <form onSubmit={props.handleSubmit} className="">
-              <input
-                type="text"
-                name="identifier"
-                onChange={props.handleChange}
-                placeholder="Username"
-                required
-              />
-              <input
-                type="password"
-                name="password"
-                onChange={props.handleChange}
-                placeholder="Password"
-                required
-              />
+          <div className="p-9" >
+            <h1 className='text-center'>Login</h1>
+            <form onSubmit={props.handleSubmit} className="">
+              <input className="form-control-lg my-3" type="text" name="identifier" onChange={props.handleChange} placeholder="Username" required />
+              <input className="form-control-lg my-3" type="password" name="password" onChange={props.handleChange} placeholder="Password" required />
 
-              <button
-                type="submit"
-              >
-                Login
-              </button>
+              <button type="submit">Login</button>
             </form>
-          </>
+          </div>
           ) : ('') }
       
           {!loading && (user ? (
