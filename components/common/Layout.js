@@ -2,12 +2,11 @@
 import Router from "next/router";
 import { unsetToken } from "../../lib/auth";
 import { useFetchUser } from "../../lib/authContext";
-
 const logout = () => {
   unsetToken();
 };
 
-export default function Layout({children}) {
+export default function Layout ({children, service}) {
   // Authentication
   const { user, loading} = useFetchUser();
   if (!user && !loading) {
@@ -19,7 +18,7 @@ export default function Layout({children}) {
 
   // Basic Page Layout
   return (
-      <>
+      <main>
           {/* Page content:*/}{children}
           {!loading &&
             (user ? (
@@ -32,7 +31,6 @@ export default function Layout({children}) {
                     Logout
                 </a>
               </>) : ('')) }
-      </>
+      </main>
   )
-
 }
