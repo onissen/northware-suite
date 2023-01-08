@@ -5,7 +5,7 @@ import { ThemeProvider } from 'next-themes';
 config.autoAddCss = false;
 import '../styles/globals.sass';
 
-function App({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return(
     <ThemeProvider forcedTheme={Component.theme || 'light'} enableSystem="false">
       {/* TODO: Hier als Fallback das Cockpit Theme hinterlegen */}
@@ -13,5 +13,3 @@ function App({ Component, pageProps }) {
     </ThemeProvider>
     )
 }
-
-export default App;
