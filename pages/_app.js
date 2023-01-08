@@ -7,8 +7,11 @@ import '../styles/globals.sass';
 
 export default function App({ Component, pageProps }) {
   return(
-    <ThemeProvider forcedTheme={Component.theme || 'light'} enableSystem="false">
-      {/* TODO: Hier als Fallback das Cockpit Theme hinterlegen */}
+      <ThemeProvider 
+        themes={['cockpit', 'finance', 'hr', 'trader']} 
+        forcedTheme={Component.theme || 'cockpit'} 
+        enableSystem="false"
+      >
       <Component {...pageProps} />
     </ThemeProvider>
     )

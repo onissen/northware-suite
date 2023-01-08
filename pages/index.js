@@ -10,5 +10,5 @@ function Index() {
     </Layout>
   )
 }
-Index.theme = 'dark'
+Index.theme = 'cockpit'
 export default Index;
