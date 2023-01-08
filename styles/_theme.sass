@@ -1,4 +1,15 @@
-[data-theme="dark"]
-  --primary: #fff
+/**** Theme Configuration --- only CSS variables and HEX-Codes are useable ***/
+[data-theme="cockpit"]
+  --primary: #0079D5
 
+[data-theme="finance"]
+  --primary: #83060B
+
+[data-theme="hr"]
+  --primary: #03860F
+
+[data-theme="trader"]
+  --primary: #f8a711
+
+/*** Convert Theme variables to SASS-readable Variables --- not working with SASS-Functions like mix() ***/
 $primary: var(--primary)
