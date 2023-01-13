@@ -1,6 +1,10 @@
 /**** Theme Configuration --- only CSS variables and HEX-Codes are useable ***/
 [data-theme="cockpit"]
   --primary: #0079D5
+  --primary-rgb: rgb(0, 121, 213)
+  --primary-focus-25: rgba(64, 141, 201, .25)
+  --primary-focus-50: rgba(64, 141, 201, .50)
+  --primary-focus-75: rgba(64, 141, 201, .75)
 
 [data-theme="finance"]
   --primary: #83060B
@@ -13,3 +17,9 @@
 
 /*** Convert Theme variables to SASS-readable Variables --- not working with SASS-Functions like mix() ***/
 $primary: var(--primary)
+$primary-rgb: var(--primary-rgb)
+$primary-focus-25: var(--primary-focus-25)
+$primary-focus-50: var(--primary-focus-75)
+
+$black: #0B1D23 // HSB of cockpit-prm with brightness 10%
+$white: #F4F4F4 // HSB of cockpit-prm with brightness 90%
