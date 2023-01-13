@@ -2,23 +2,32 @@
 [data-theme="cockpit"]
   --primary: #0079D5
   --primary-rgb: 0, 121, 213
+  --primary-light-rgb: 64, 167, 213
+// Primary Light: #40A7D5
 
 
 [data-theme="finance"]
   --primary: #83060B
   --primary-rgb: 131, 6, 11
+  --primary-light-rgb: 212, 93, 94
+// Primary Light #D45D5E
 
 [data-theme="hr"]
   --primary: #03860F
   --primary-rgb: 3, 134, 15
+  --primary-light-rgb: 124, 209, 151
+// Primary Light #7CD197
 
 [data-theme="trader"]
   --primary: #f8a711
   --primary-rgb: 248, 167, 17
+  --primary-light-rgb: 249, 209, 145
+// Primary Light #F9D191
 
 /*** Convert Theme variables to SASS-readable Variables --- not working with SASS-Functions like mix() ***/
 $primary: var(--primary)
 $primary-rgb: var(--primary-rgb)
+$primary-light-rgb: var(--primary-light-rgb)
 
 $black: #0B1D23 // HSB of cockpit-prm with brightness 10%
 $white: #F4F4F4 // HSB of cockpit-prm with brightness 90%
