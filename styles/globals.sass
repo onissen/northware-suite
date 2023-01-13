@@ -2,9 +2,11 @@
 @tailwind components
 @tailwind utilities
 
-@import variables
+@import sass_var
+@import theme
 @import typography
 @import forms
 
-// Should be Service Individual
-@include form-control-focus ($color: $cockpit-prm)
+.bg-cockpit
+    background-color: $cockpit-prm
+    color: $white
