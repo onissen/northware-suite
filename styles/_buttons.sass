@@ -4,6 +4,7 @@
     line-height: 1.5
     text-align: center
     @apply shadow
+    border: 1px solid transparent
 
 .btn
     @include btn-base
@@ -130,3 +131,89 @@
     
     &:focus
         box-shadow: 0 0 0 .25rem rgba(mix($dark, #fff, 50%), 0.25)
+
+/*** Buttons Outline **/
+
+.btn-outline-primary
+    color: $primary
+    border-color: $primary
+
+    &:hover, &:focus, &:active
+        color: $onprimary
+        background-color: $primary
+        border-color: $primary
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($primary, 0.25)
+
+.btn-outline-success
+    color: $success
+    border-color: $success
+
+    &:hover, &:focus, &:active
+        color: $white
+        background-color: $success
+        border-color: $success
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($success, 0.25)
+
+.btn-outline-danger
+    color: $danger
+    border-color: $danger
+
+    &:hover, &:focus, &:active
+        color: $white
+        background-color: $danger
+        border-color: $danger
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($danger, 0.25)
+
+.btn-outline-warning
+    color: $warning
+    border-color: $warning
+
+    &:hover, &:focus, &:active
+        color: $black
+        background-color: $warning
+        border-color: $warning
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($warning, 0.25)
+
+.btn-outline-info
+    color: $info
+    border-color: $info
+
+    &:hover, &:focus, &:active
+        color: $white
+        background-color: $info
+        border-color: $info
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($info, 0.25)
+
+.btn-outline-light
+    color: $light
+    border-color: $light
+
+    &:hover, &:focus, &:active
+        color: $black
+        background-color: $light
+        border-color: $light
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($light, 0.25)
+
+.btn-outline-dark
+    color: $dark
+    border-color: $dark
+
+    &:hover, &:focus, &:active
+        color: $white
+        background-color: $dark
+        border-color: $dark
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($dark, 0.25)
