@@ -18,7 +18,7 @@ export default function LoginForm(props) {
               <input className="form-control-lg my-3" type="text" name="identifier" onChange={props.handleChange} placeholder="Benutzername" required />
               <input className="form-control-lg my-3" type="password" name="password" onChange={props.handleChange} placeholder="Passwort" required />
 
-              <button type="submit">Login</button>
+              <button class="btn-lg btn-primary w-full my-3" type="submit">Login</button>
             </form>
           </div>
           ) : ('') }
