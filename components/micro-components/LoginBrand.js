@@ -1,6 +1,6 @@
 /*jshint esversion:6 */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styles from '../../styles/LoginForm.module.sass';
+import styles from '../../layout/LoginForm.module.sass';
 
 export default function LoginBrand(props) {
     return (
