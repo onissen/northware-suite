@@ -1,0 +1,132 @@
+/** Button Sizes **/
+@mixin btn-base
+    font-weight: 600
+    line-height: 1.5
+    text-align: center
+    @apply shadow
+
+.btn
+    @include btn-base
+    @apply rounded-md
+    padding: 0.5rem 0.75rem
+    font-size: 1rem
+
+.btn-sm
+    @include btn-base
+    @apply rounded
+    padding: 0.25rem 0.5rem
+    font-size: 0.875rem
+
+.btn-lg
+    @include btn-base
+    @apply rounded-lg
+    padding: 0.75rem 1rem
+    font-size: 1.25rem
+
+
+/** Button Themes **/
+.btn-primary
+    background-color: $primary
+    color: $onprimary
+
+    &:hover, &:focus
+        background-color: rgb($primary-dark80)
+        color: $onprimary
+    
+    &:active
+        background-color: rgb($primary-dark65)
+        color: $onprimary
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($primary-light-rgb, 0.25)
+
+
+.btn-success
+    background-color: $success
+    color: $white
+
+    &:hover, &:focus
+        background-color: mix($success, #000, 80%)
+        color: $white
+    
+    &:active
+        background-color: mix($success, #000, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($success, #fff, 50%), 0.25)
+
+.btn-danger
+    background-color: $danger
+    color: $white
+
+    &:hover, &:focus
+        background-color: mix($danger, #000, 80%)
+        color: $white
+    
+    &:active
+        background-color: mix($danger, #000, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($danger, #fff, 50%), 0.25)
+
+.btn-warning
+    background-color: $warning
+    color: $black
+
+    &:hover, &:focus
+        background-color: mix($warning, #000, 80%)
+        color: $white
+    
+    &:active
+        background-color: mix($warning, #000, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($warning, #fff, 50%), 0.25)
+
+.btn-info
+    background-color: $info
+    color: $white
+
+    &:hover, &:focus
+        background-color: mix($info, #000, 80%)
+        color: $white
+    
+    &:active
+        background-color: mix($info, #000, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($info, #fff, 50%), 0.25)
+
+.btn-light
+    background-color: $light
+    color: $black
+
+    &:hover, &:focus
+        background-color: mix($light, #000, 80%)
+        color: $white
+    
+    &:active
+        background-color: mix($light, #000, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($light, #fff, 50%), 0.25)
+
+.btn-dark
+    background-color: $dark
+    color: $white
+
+    &:hover, &:focus
+        background-color: mix($dark, #000, 80%)
+        color: $white
+    
+    &:active
+        background-color: mix($dark, #000, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($dark, #fff, 50%), 0.25)
