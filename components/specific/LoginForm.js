@@ -24,15 +24,6 @@ export default function LoginForm(props) {
                   <input type="text" name="password" id="input-password" onChange={props.handleChange} required class="form-control-lg peer" placeholder=" " />
                   <label for="input-password" class="peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Passwort</label>
               </div>
-
-              <input className="form-control-lg my-3" type="text" name="identifier" onChange={props.handleChange} placeholder="Benutzername" required />
-              <input className="form-control-lg my-3" type="password" name="password" onChange={props.handleChange} placeholder="Passwort" required />
-
-              <div class="form-floating">
-                <input type="text" id="floating_filled" class="form-control-lg peer" placeholder=" " />
-                <label for="floating_filled" class="peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Floating filled</label>
-              </div>
-
               <button class="btn-lg btn-primary w-full my-3" type="submit">Login</button>
             </form>
           </div>
