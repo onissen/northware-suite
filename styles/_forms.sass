@@ -10,7 +10,7 @@
     line-height: 1.5
     border: 1px solid #dee2e6
     background-color: $white
-    @apply shadow-sm
+    @apply shadow-sm placeholder:text-slate-400
         
     
 .form-control
@@ -32,3 +32,30 @@
     min-height: calc(1.5em + .5rem + 2px)
     font-size: 0.875rem
     @apply rounded
+
+.form-floating
+    position: relative
+    
+    .form-control, .form-control-lg
+        padding-top: 1rem
+        padding-bottom: 1rem
+
+        &:focus 
+            padding-top: 1.15rem
+            padding-bottom: 0.85rem
+
+            + label
+                color: rgba($primary-rgb, 0.8)
+
+    label
+        @apply absolute duration-300 transform -translate-y-4 scale-75 z-10 origin-[0]
+        top: 1rem
+        color: rgb(148 163 184)
+    
+    .form-control + label
+        font-size: 1rem
+        left: 0.75rem
+
+    .form-control-lg + label
+        left: 1rem
+        font-size: 1.25rem
