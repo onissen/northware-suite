@@ -21,7 +21,7 @@ export default function LoginForm(props) {
               </div>
 
               <div class="form-floating my-3">
-                  <input type="text" name="password" id="input-password" onChange={props.handleChange} required class="form-control-lg peer" placeholder=" " />
+                  <input type="password" name="password" id="input-password" onChange={props.handleChange} required class="form-control-lg peer" placeholder=" " />
                   <label for="input-password" class="peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4">Passwort</label>
               </div>
               <button class="btn-lg btn-primary w-full my-3" type="submit">Login</button>
