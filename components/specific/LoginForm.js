@@ -1,7 +1,7 @@
 /* jshint esversion:6 */
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { useFetchUser } from "../../lib/authContext";
-import layout from '../../layout/LoginForm.module.sass';
+import layout from '../../styles/components/LoginForm.module.sass';
 import LoginBrand from "../micro-components/LoginBrand";
 
 
