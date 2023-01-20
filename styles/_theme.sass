@@ -1,26 +1,42 @@
 /**** Theme Configuration --- only CSS variables and HEX-Codes are useable ***/
 [data-theme="cockpit"]
   --primary: #0079D5
+  --onprimary: #f2f2f2
   --primary-rgb: 0, 121, 213
   --primary-light-rgb: 64, 167, 213
+  --primary-dark80-rgb: 32, 129, 203
+  --primary-dark65-rgb: 56, 135, 195
 
 [data-theme="finance"]
   --primary: #83060B
+  --onprimary: #f2f2f2
   --primary-rgb: 131, 6, 11
   --primary-light-rgb: 212, 93, 94
+  --primary-dark80-rgb: 137, 37, 41
+  --primary-dark65-rgb: 142, 60, 64
+
 
 [data-theme="hr"]
   --primary: #03860F
+  --onprimary:#f2f2f2
   --primary-rgb: 3, 134, 15
   --primary-light-rgb: 124, 209, 151
+  --primary-dark80-rgb: 35, 139, 44
+  --primary-dark65-rgb: 58, 143, 66
 
 [data-theme="trader"]
   --primary: #f8a711
+  --onprimary: #332100
   --primary-rgb: 248, 167, 17
   --primary-light-rgb: 249, 209, 145
-
+  --primary-dark80-rgb: 231, 166, 46
+  --primary-dark65-rgb: 218, 165, 67
+  
 
 /*** Convert Theme variables to SASS-readable Variables --- not working with SASS-Functions like mix() ***/
 $primary: var(--primary)
 $primary-rgb: var(--primary-rgb)
 $primary-light-rgb: var(--primary-light-rgb)
+$onprimary: var(--onprimary)
+$primary-dark65: var(--primary-dark65-rgb)
+$primary-dark80: var(--primary-dark80-rgb)
