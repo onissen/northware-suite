@@ -7,6 +7,7 @@ export default function Index() {
     <Layout service='finance'>
       <h1>Test</h1>
       <a href="/test">Test</a>
+      <button className="btn btn-light">Light</button>
     </Layout>
   )
 }
