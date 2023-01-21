@@ -1,0 +1,24 @@
+@import ../_sass_var
+@import ../_theme
+
+.loader
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+    .loadingSpinner
+        width: 7rem
+        height: 7rem
+        border: solid 0.7rem rgba($black, 0.05)
+        border-radius: 50%
+        border-top-right-radius: 3.5rem
+        border-bottom-right-radius: 3.5rem
+        border-right: solid 0.7rem $primary
+        animation: spin 2s infinite
+
+@keyframes spin
+    0%
+        transform: rotate(0)
+    100%
+        transform: rotate(360deg)
