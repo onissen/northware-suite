@@ -1,15 +1,15 @@
 /* jshint esversion:6 */
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { useFetchUser } from "../../lib/authContext";
-import layout from '../../layout/LoginForm.module.sass';
+import design from '../../styles/components/LoginForm.module.sass';
 import LoginBrand from "../micro-components/LoginBrand";
 
 
 export default function LoginForm(props) {
     const { user, loading} = useFetchUser();
     return (
-    <main className={layout.loginBody}>
-      <div className={layout.loginBox}>
+    <main className={design.loginBody}>
+      <div className={design.loginBox}>
         <LoginBrand brandIcon={faBriefcase} brandName='Northware Cockpit' bgClass='bg-cockpit' />
         {!loading && !user ? (
           <div className="p-9" >

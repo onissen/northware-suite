@@ -2,6 +2,7 @@
 import Router from "next/router";
 import { unsetToken } from "../../lib/auth";
 import { useFetchUser } from "../../lib/authContext";
+import LoadingSpinner from "../specific/LoadingSpinner";
 const logout = () => {
   unsetToken();
 };
@@ -13,7 +14,9 @@ export default function Layout ({children, service}) {
     Router.push('/login');
   }
   if (!user) {
-    return('Sie werden weitergeleitet...');
+    return(
+      <LoadingSpinner />
+    );
   }
 
   // Basic Page Layout

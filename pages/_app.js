@@ -8,9 +8,10 @@ import '../styles/globals.sass';
 export default function App({ Component, pageProps }) {
   return(
       <ThemeProvider 
-        themes={['cockpit', 'finance', 'hr', 'trader']} 
-        forcedTheme={Component.theme || 'cockpit'} 
+        themes={['cockpit_theme', 'finance_theme', 'hr_theme', 'trader_theme']} 
+        forcedTheme={Component.theme || 'cockpit_theme'} 
         enableSystem="false"
+        attribute="class"
       >
       <Component {...pageProps} />
     </ThemeProvider>

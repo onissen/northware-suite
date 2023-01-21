@@ -10,4 +10,4 @@ export default function Index() {
     </Layout>
   )
 }
-Index.theme = 'cockpit'
+Index.theme = 'cockpit_theme'
