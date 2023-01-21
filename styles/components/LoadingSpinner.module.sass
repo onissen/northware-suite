@@ -1,24 +1,32 @@
 @import ../_sass_var
 @import ../_theme
 
-.loader
+
+.SpinnerContainer
     display: flex
     justify-content: center
     align-items: center
+    position: fixed
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
     flex-direction: column
+    color: rgb($primary-light-rgb)
 
-    .loadingSpinner
-        width: 7rem
-        height: 7rem
-        border: solid 0.7rem rgba($black, 0.05)
-        border-radius: 50%
-        border-top-right-radius: 3.5rem
-        border-bottom-right-radius: 3.5rem
-        border-right: solid 0.7rem $primary
-        animation: spin 2s infinite
+    .SpinningIcon
+        width: 5rem
+        height: 5rem
+        animation: spin linear 3s infinite
+
+        svg
+            color: rgba($primary-light-rgb)
+            width: 5rem
+            height: 5rem
 
 @keyframes spin
     0%
-        transform: rotate(0)
+        rotate: 0
+    
     100%
-        transform: rotate(360deg)
+        rotate: 360deg
