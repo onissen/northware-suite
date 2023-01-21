@@ -2,7 +2,7 @@
 
 import Layout from "../components/common/Layout";
 
-function Index() {
+export default function Index() {
   return(
     <Layout service='finance'>
       <h1>Test</h1>
@@ -10,5 +10,4 @@ function Index() {
     </Layout>
   )
 }
-Index.theme = 'cockpit'
-export default Index;
+Index.theme = 'cockpit_theme'

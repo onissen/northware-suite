@@ -1,0 +1,125 @@
+/** Button Sizes **/
+@mixin btn-base
+    font-weight: 600
+    line-height: 1.5
+    text-align: center
+    @apply shadow
+    border: 1px solid transparent
+
+.btn
+    @include btn-base
+    @apply rounded-md
+    padding: 0.5rem 0.75rem
+    font-size: 1rem
+
+.btn-sm
+    @include btn-base
+    @apply rounded
+    padding: 0.25rem 0.5rem
+    font-size: 0.875rem
+
+.btn-lg
+    @include btn-base
+    @apply rounded-lg
+    padding: 0.75rem 1rem
+    font-size: 1.25rem
+
+
+/** Button Themes **/
+@mixin btn-theme($background, $onbackground)
+    background-color: $background
+    color: $onbackground
+
+    &:hover, &:focus
+        background-color: mix($background, #a1a1a1, 80%)
+        color: $onbackground
+    
+    &:active
+        background-color: mix($background, #a1a1a1, 65%)
+        color: $white
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($background, #fff, 50%), 0.25)
+
+    
+
+.btn-primary
+    background-color: $primary
+    color: $onprimary
+
+    &:hover, &:focus
+        background-color: rgb($primary-dark80)
+        color: $onprimary
+    
+    &:active
+        background-color: rgb($primary-dark65)
+        color: $onprimary
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba($primary-light-rgb, 0.25)
+
+
+.btn-success
+    @include btn-theme($background: $success, $onbackground: #fff)
+
+.btn-danger
+    @include btn-theme($background: $danger, $onbackground: #fff)
+    
+
+.btn-warning
+    @include btn-theme($background: $warning, $onbackground: #000)
+    
+
+.btn-info
+    @include btn-theme($background: $info, $onbackground: #fff)
+
+.btn-light
+    @include btn-theme($background: $light, $onbackground: #000)
+
+.btn-dark
+    @include btn-theme($background: $dark, $onbackground: #fff)
+    
+
+/*** Buttons Outline **/
+
+@mixin btn-theme-outline($background, $onbackground)
+    color: $background
+    border-color: $background
+
+    &:hover, &:focus, &:active
+        color: $onbackground
+        background-color: $background
+        border-color: $background
+    
+    &:focus
+        box-shadow: 0 0 0 .25rem rgba(mix($background, #fff, 50%), 0.25)
+    
+
+.btn-outline-primary
+    color: $primary
+    border-color: $primary
+
+    &:hover, &:focus, &:active
+        color: $onprimary
+        background-color: $primary
+        border-color: $primary
+
+.btn-outline-success
+    @include btn-theme-outline($background: $success, $onbackground: #fff)
+    
+.btn-outline-danger
+    @include btn-theme-outline($background: $danger, $onbackground: #fff)
+
+.btn-outline-warning
+    @include btn-theme-outline($background: $warning, $onbackground: #000)
+    
+.btn-outline-info
+    @include btn-theme-outline($background: $info, $onbackground: #fff)
+
+.btn-outline-light
+    @include btn-theme-outline($background: $light, $onbackground: #000)
+    
+
+.btn-outline-dark
+    @include btn-theme-outline($background: $dark, $onbackground: #fff)
+    
