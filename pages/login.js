@@ -5,7 +5,7 @@ import { setToken, unsetToken } from "../lib/auth";
 import { useFetchUser} from "../lib/authContext";
 import { fetcher } from "../lib/api";
 import LoginForm from "../components/specific/LoginForm";
-import Head from "next/head";
+import NWHead from "../components/common/NWHead";
 
 const LoginPage = () => {
   const [data, setData] = useState({
@@ -43,12 +43,11 @@ const LoginPage = () => {
   };
   return (
       <>
-        <Head>
-            <title>Login | Northware Cockpit</title>
-        </Head>
+        <NWHead service="cockpit" siteTitle="Login" />
         <LoginForm handleChange={handleChange} handleSubmit={handleSubmit}/>
       </>
     );
 };
 
+LoginPage.theme="cockpit_theme"
 export default LoginPage;
