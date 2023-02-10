@@ -1,0 +1,19 @@
+@import ../_theme
+
+.navbar
+    background-color: $primary
+    color: $onprimary
+
+.navbarWrapper
+    @apply mx-auto max-w-7xl px-2 sm:px-6 lg:px-8
+
+    .navbarBrand
+        font-size: 1.25rem
+
+    .navbarPill   
+        &:hover, &:focus
+            background-color: rgba(243, 244, 246, 0.3)
+            color: $onprimary
+
+    .hamburgerToggle
+        @apply inline-flex items-center justify-center p-2 rounded-md

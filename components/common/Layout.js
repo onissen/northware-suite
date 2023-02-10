@@ -3,6 +3,8 @@ import Router from "next/router";
 import { unsetToken } from "../../lib/auth";
 import { useFetchUser } from "../../lib/authContext";
 import LoadingSpinner from "../specific/LoadingSpinner";
+import Nav from "./HeadNav";
+import HeadNav from "./HeadNav";
 import NWHead from "./NWHead";
 const logout = () => {
   unsetToken();
@@ -27,7 +29,10 @@ export default function Layout ({children, service, siteTitle}) {
   return (
       <>
         <NWHead service={service} siteTitle={siteTitle} />
-        <main>
+
+        {/* <HeadNav service={service} /> */}
+        <Nav service={service} />
+        <main className="wrapper">
             {/* Page content:*/}{children}
             {!loading &&
               (user ? (
