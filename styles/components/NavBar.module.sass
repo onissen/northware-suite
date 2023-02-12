@@ -1,4 +1,5 @@
 @import ../_theme
+@import ../sass_var
 
 .navbar
     background-color: $primary
@@ -10,10 +11,26 @@
     .navbarBrand
         font-size: 1.25rem
 
-    .navbarPill   
+    .navbarPill
+        @apply inline-flex w-full justify-center rounded-md px-4 py-2
+
         &:hover, &:focus
             background-color: rgba(243, 244, 246, 0.3)
             color: $onprimary
 
     .hamburgerToggle
         @apply inline-flex items-center justify-center p-2 rounded-md
+
+    .navbarDropdownWrapper
+        .navbarDropdownMask
+            background-color: rgba($primary-light-rgb, 0.1)
+        
+        .navbarDropdownItem
+            @apply block px-4 py-2 text-gray-700
+
+            &:hover
+                background-color: rgba($primary-light-rgb, 0.2)
+
+            &.navbarDropdownItemParent
+                font-weight: 700
+        

@@ -3,7 +3,6 @@ import Router from "next/router";
 import { unsetToken } from "../../lib/auth";
 import { useFetchUser } from "../../lib/authContext";
 import LoadingSpinner from "../specific/LoadingSpinner";
-import Nav from "./HeadNav";
 import HeadNav from "./HeadNav";
 import NWHead from "./NWHead";
 const logout = () => {
@@ -31,7 +30,7 @@ export default function Layout ({children, service, siteTitle}) {
         <NWHead service={service} siteTitle={siteTitle} />
 
         {/* <HeadNav service={service} /> */}
-        <Nav service={service} />
+        <HeadNav service={service} />
         <main className="wrapper">
             {/* Page content:*/}{children}
         </main>

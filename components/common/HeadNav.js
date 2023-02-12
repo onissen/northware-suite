@@ -2,27 +2,6 @@
 import Link from 'next/link';
 import { ServiceBrand, ServiceBrandIcon } from '../../lib/serviceHandler';
 import design from '../../styles/components/NavBar.module.sass';
-
-
-// export default function HeadNav(props) {
-//     return (
-//         <nav className={design.navbar} >
-//             <div className={design.navbarWrapper}>
-//                 <Link href="/" className={design.navbarBrand}>
-//                     <ServiceBrand service={props.service} />
-//                 </Link>
-
-//                 <ul className="">
-//                     <li><Link href="#" className={`navpill ${design.navbarPill}`}>Test</Link></li>
-//                     <li><Link href="#" className={`navpill ${design.navbarPill}`}>Test</Link></li>
-//                     <li><Link href="#" className={`navpill ${design.navbarPill}`}>Test</Link></li>
-//                 </ul>
-//             </div>
-//         </nav>
-//     );
-// }
-
-
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
@@ -32,23 +11,17 @@ const logout = () => {
   unsetToken();
 };
 
-const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
-];
 
-const servicenav = [
-  {parent: {name: 'Admin', href:'#'}, 
+const navigation = [
+  {parent: {name: 'Admin', href:'/admin', current: true}, 
   children: {
-    1: {name: 'Test', href: '#'},
-    2: {name: 'Test2', href: '#'}
+    1: {name: 'Test', href: '#', current: false},
+    2: {name: 'Test2', href: '#', current: false}
   }},
-  {parent: {name: 'Verwaltung', href:'#'}, 
+  {parent: {name: 'Verwaltung', href:'#', current: false}, 
   children: {
-    1: {name: 'Test3', href: '#'},
-    2: {name: 'Test4', href: '#'}
+    1: {name: 'Test3', href: '#', current: false},
+    2: {name: 'Test4', href: '#', current: false}
   }}
 ];
 
@@ -56,7 +29,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Nav(props) {
+export default function HeadNav(props) {
   return (
     <Disclosure as="nav" className={design.navbar}>
       {({ open }) => (
@@ -80,45 +53,49 @@ export default function Nav(props) {
                   <span className={`hidden lg:block ${design.navbarBrand}`}><ServiceBrand service={props.service} /></span>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  {servicenav.map((item) => (
+                  {navigation.map((item) => (
                     <Menu as="div" className="relative inline-block text-left">
-                      <Menu.Button className="inline-flex justify-center rounded-md text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                        <a key={item.parent.name} href={item.parent.href}>
+                      <Menu.Button className={design.navbarPill}>
+                        <a key={item.parent.index} href={item.parent.href}>
                           {item.parent.name}
                         </a>
-                        <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+                        <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" />
                       </Menu.Button>
-                    <Transition
-                      as={Fragment}
-                      enter="transition ease-out duration-100"
-                      enterFrom="transform opacity-0 scale-95"
-                      enterTo="transform opacity-100 scale-100"
-                      leave="transition ease-in duration-75"
-                      leaveFrom="transform opacity-100 scale-100"
-                      leaveTo="transform opacity-0 scale-95"
-                    >
-                    <Menu.Items className="absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-md bg-white shadow-lg focus:outline-none">
-                      <div className="py-1">
-                        {Object.values(item.children).map((childItem) => (
+                      <Transition
+                        as={Fragment}
+                        enter="transition ease-out duration-100"
+                        enterFrom="transform opacity-0 scale-95"
+                        enterTo="transform opacity-100 scale-100"
+                        leave="transition ease-in duration-75"
+                        leaveFrom="transform opacity-100 scale-100"
+                        leaveTo="transform opacity-0 scale-95"
+                      >
+                      <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-md shadow-lg focus:outline-none`}>
+                        <div className={`py-1 ${design.navbarDropdownMask}`}>
                           <Menu.Item>
-                            {({ active }) => (
-                              <a
-                                key={childItem.name}
-                                href={childItem.href}
-                                className={classNames(
-                                  active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                                  'block px-4 py-2 text-sm'
-                                )}
-                              >
-                                {childItem.name}
-                              </a>
-                            )}
-                          </Menu.Item>
-                        ))}
-                      </div>
-                    </Menu.Items>
-                    </Transition>
-                  </Menu>
+                                <a
+                                  key={item.parent.name}
+                                  href={item.parent.href}
+                                  className={`${design.navbarDropdownItem} ${design.navbarDropdownItemParent}`}
+                                >
+                                  {item.parent.name}
+                                </a>
+                            </Menu.Item>
+                          {Object.values(item.children).map((childItem) => (
+                            <Menu.Item>
+                                <a
+                                  key={childItem.name}
+                                  href={childItem.href}
+                                  className={design.navbarDropdownItem}
+                                >
+                                  {childItem.name}
+                                </a>
+                            </Menu.Item>
+                          ))}
+                        </div>
+                      </Menu.Items>
+                      </Transition>
+                    </Menu>
                   ))}
                 </div>
               </div>
