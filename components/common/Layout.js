@@ -34,17 +34,6 @@ export default function Layout ({children, service, siteTitle}) {
         <Nav service={service} />
         <main className="wrapper">
             {/* Page content:*/}{children}
-            {!loading &&
-              (user ? (
-                <>
-                  <a
-                      className="md:p-2 py-2 block hover:text-purple-400"
-                      onClick={logout}
-                      style={{ cursor: 'pointer' }}
-                  >
-                      Logout
-                  </a>
-                </>) : ('')) }
         </main>
       </>
   )
