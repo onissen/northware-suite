@@ -1,35 +1,24 @@
 /* jshint esversion:6 */
 import Link from 'next/link';
-import { ServiceBrand, ServiceBrandIcon } from '../../lib/serviceHandler';
+import { ServiceBrand, ServiceBrandIcon, servicenav } from '../../lib/serviceHandler';
 import design from '../../styles/components/NavBar.module.sass';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { unsetToken } from '../../lib/auth';
-
 const logout = () => {
   unsetToken();
 };
 
 
-const navigation = [
-  {parent: {name: 'Admin', href:'/admin', current: true}, 
-  children: {
-    1: {name: 'Test', href: '#', current: false},
-    2: {name: 'Test2', href: '#', current: false}
-  }},
-  {parent: {name: 'Verwaltung', href:'#', current: false}, 
-  children: {
-    1: {name: 'Test3', href: '#', current: false},
-    2: {name: 'Test4', href: '#', current: false}
-  }}
-];
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
+
+
 export default function HeadNav(props) {
+  const navigation = servicenav(props.service);
   return (
     <Disclosure as="nav" className={design.navbar}>
       {({ open }) => (
@@ -59,42 +48,46 @@ export default function HeadNav(props) {
                         <a key={item.parent.index} href={item.parent.href}>
                           {item.parent.name}
                         </a>
+                        {item.children !== null && (
                         <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" />
+                        )}
                       </Menu.Button>
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-100"
-                        enterFrom="transform opacity-0 scale-95"
-                        enterTo="transform opacity-100 scale-100"
-                        leave="transition ease-in duration-75"
-                        leaveFrom="transform opacity-100 scale-100"
-                        leaveTo="transform opacity-0 scale-95"
-                      >
-                      <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-md shadow-lg focus:outline-none`}>
-                        <div className={`py-1 ${design.navbarDropdownMask}`}>
-                          <Menu.Item>
-                                <a
-                                  key={item.parent.name}
-                                  href={item.parent.href}
-                                  className={`${design.navbarDropdownItem} ${design.navbarDropdownItemParent}`}
-                                >
-                                  {item.parent.name}
-                                </a>
-                            </Menu.Item>
-                          {Object.values(item.children).map((childItem) => (
-                            <Menu.Item>
-                                <a
-                                  key={childItem.name}
-                                  href={childItem.href}
-                                  className={design.navbarDropdownItem}
-                                >
-                                  {childItem.name}
-                                </a>
-                            </Menu.Item>
+                      {item.children ? (
+                        <Transition
+                          as={Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          {Object.values(item.children).map((childItem) => (   
+                            <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-md shadow-lg focus:outline-none`}>
+                              <div className={`py-1 ${design.navbarDropdownMask}`}>
+                                <Menu.Item>
+                                  <a
+                                    key={item.parent.name}
+                                    href={item.parent.href}
+                                    className={`${design.navbarDropdownItem} ${design.navbarDropdownItemParent}`}
+                                  >
+                                    {item.parent.name}
+                                  </a>
+                                </Menu.Item>                           
+                                <Menu.Item>
+                                    <a
+                                      key={childItem.name}
+                                      href={childItem.href}
+                                      className={design.navbarDropdownItem}
+                                    >
+                                      {childItem.name}
+                                    </a>
+                                </Menu.Item>
+                              </div>
+                            </Menu.Items>
                           ))}
-                        </div>
-                      </Menu.Items>
-                      </Transition>
+                        </Transition>
+                      ) : ('')}
                     </Menu>
                   ))}
                 </div>
@@ -105,11 +98,9 @@ export default function HeadNav(props) {
                 <Menu as="div" className="relative ml-3">
                   <div>
                     <Menu.Button className="flex py-2">
-                      <span className="sr-only">Open user menu</span>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
                         <path fillRule="evenodd" d="M18.685 19.097A9.723 9.723 0 0021.75 12c0-5.385-4.365-9.75-9.75-9.75S2.25 6.615 2.25 12a9.723 9.723 0 003.065 7.097A9.716 9.716 0 0012 21.75a9.716 9.716 0 006.685-2.653zm-12.54-1.285A7.486 7.486 0 0112 15a7.486 7.486 0 015.855 2.812A8.224 8.224 0 0112 20.25a8.224 8.224 0 01-5.855-2.438zM15.75 9a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" clipRule="evenodd" />
                       </svg>
-
                     </Menu.Button>
                   </div>
                   <Transition
@@ -121,38 +112,25 @@ export default function HeadNav(props) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-4 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className={`${design.navbarDropdownWrapper} absolute right-0 z-10 mt-4 w-56 origin-top-right rounded-md shadow-lg focus:outline-none`}>
+                      <div className={`py-1 ${design.navbarDropdownMask}`}>
                       <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="login"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
-                            onClick={logout}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
+                            <a
+                              className={`${design.navbarDropdownItem} ${design.navbarDropdownItemParent}`}
+                            >
+                              Username
+                            </a>
+                        </Menu.Item>
+                        <Menu.Item>
+                            <a
+                              href="login"
+                              className={design.navbarDropdownItem}
+                              onClick={logout}
+                            >
+                              Abmelden
+                            </a>
+                        </Menu.Item>
+                      </div>
                     </Menu.Items>
                   </Transition>
                 </Menu>

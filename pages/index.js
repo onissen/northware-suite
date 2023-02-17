@@ -4,7 +4,7 @@ import Layout from "../components/common/Layout";
 
 export default function Index() {
   return(
-    <Layout service={'cockpit'} siteTitle={'Home'}>
+    <Layout service={'finance'} siteTitle={'Home'}>
       <h1>Test</h1>
     </Layout>
   )
