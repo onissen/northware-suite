@@ -1,10 +1,9 @@
 /* jshint esversion:6 */
-import Link from 'next/link';
 import { ServiceBrand, ServiceBrandIcon, servicenav } from '../../lib/serviceHandler';
 import design from '../../styles/components/NavBar.module.sass';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { unsetToken } from '../../lib/auth';
 import NavBarContent from '../micro-components/HeadNav_navbarContent';
 const logout = () => {
@@ -43,54 +42,6 @@ export default function HeadNav(props) {
                   <span className={`hidden lg:block ${design.navbarBrand}`}><ServiceBrand service={props.service} /></span>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
-                  {navigation.map((item) => (
-                    <Menu as="div" className="relative inline-block text-left">
-                      <Menu.Button className={design.navbarPill}>
-                        <a key={item.parent.index} href={item.parent.href}>
-                          {item.parent.name}
-                        </a>
-                        {item.children !== null && (
-                        <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" />
-                        )}
-                      </Menu.Button>
-                      {item.children ? (
-                        <Transition
-                          as={Fragment}
-                          enter="transition ease-out duration-100"
-                          enterFrom="transform opacity-0 scale-95"
-                          enterTo="transform opacity-100 scale-100"
-                          leave="transition ease-in duration-75"
-                          leaveFrom="transform opacity-100 scale-100"
-                          leaveTo="transform opacity-0 scale-95"
-                        >
-                          {Object.values(item.children).map((childItem) => (   
-                            <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-md shadow-lg focus:outline-none`}>
-                              <div className={`py-1 ${design.navbarDropdownMask}`}>
-                                <Menu.Item>
-                                  <a
-                                    key={item.parent.name}
-                                    href={item.parent.href}
-                                    className={`${design.navbarDropdownItem} ${design.navbarDropdownItemParent}`}
-                                  >
-                                    {item.parent.name}
-                                  </a>
-                                </Menu.Item>                           
-                                <Menu.Item>
-                                    <a
-                                      key={childItem.name}
-                                      href={childItem.href}
-                                      className={design.navbarDropdownItem}
-                                    >
-                                      {childItem.name}
-                                    </a>
-                                </Menu.Item>
-                              </div>
-                            </Menu.Items>
-                          ))}
-                        </Transition>
-                      ) : ('')}
-                    </Menu>
-                  ))}
                   <NavBarContent service={props.service} />
                 </div>
               </div>
