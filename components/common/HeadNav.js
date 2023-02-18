@@ -6,6 +6,7 @@ import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import { unsetToken } from '../../lib/auth';
+import NavBarContent from '../micro-components/HeadNav_navbarContent';
 const logout = () => {
   unsetToken();
 };
@@ -90,6 +91,7 @@ export default function HeadNav(props) {
                       ) : ('')}
                     </Menu>
                   ))}
+                  <NavBarContent service={props.service} />
                 </div>
               </div>
 
