@@ -11,7 +11,7 @@ export default function NavBarContent(props) {
         {navigation.map((item) => (
             <>
             {item.children !== null ? (
-            // Der Menüpunkt hat Unterpunkteim Dropdoen
+            // Der Menüpunkt hat Unterpunkteim Dropdown
                 <Menu as="div" className="relative inline-block text-left">
                     <Menu.Button className={design.navbarPill}>
                         <span key={item.parent.index}>

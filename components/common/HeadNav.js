@@ -6,19 +6,12 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { unsetToken } from '../../lib/auth';
 import NavBarContent from '../micro-components/HeadNav_navbarContent';
+import MobileDisclosure from '../micro-components/HeadNav_MobileDisclosure';
 const logout = () => {
   unsetToken();
 };
 
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
-}
-
-
-
 export default function HeadNav(props) {
-  const navigation = servicenav(props.service);
   return (
     <Disclosure as="nav" className={design.navbar}>
       {({ open }) => (
@@ -38,6 +31,7 @@ export default function HeadNav(props) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
+                  {/* TODO: OnClick App Switch */}
                   <ServiceBrandIcon service={props.service} className={`block lg:hidden ${design.navbarBrand}`}/>
                   <span className={`hidden lg:block ${design.navbarBrand}`}><ServiceBrand service={props.service} /></span>
                 </div>
@@ -48,7 +42,7 @@ export default function HeadNav(props) {
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                <Menu as="div" className="relative ml-3 hidden sm:block">
                   <div>
                     <Menu.Button className="flex py-2">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -90,27 +84,7 @@ export default function HeadNav(props) {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
-            {/* FIXME: SM Panels 
-                TODO: Diclosure nach HeadlessUI verändern */}
-            <div className="space-y-1 px-2 pt-2 pb-3">
-              {navigation.map((item) => (
-                <Disclosure.Button
-                  key={item.name}
-                  as="a"
-                  href={item.href}
-                  className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
-                  )}
-                  aria-current={item.current ? 'page' : undefined}
-                >
-                  {item.name}
-                </Disclosure.Button>
-              ))}
-            </div>
-          </Disclosure.Panel>
+          <MobileDisclosure service={props.service} />
         </>
       )}
     </Disclosure>
