@@ -7,10 +7,10 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { unsetToken } from '../../lib/auth';
 import NavBarContent from '../micro-components/HeadNav_navbarContent';
 import MobileDisclosure from '../micro-components/HeadNav_MobileDisclosure';
+import AppSwitchBtn from '../micro-components/HeadNav_AppSwitch_Btn';
 const logout = () => {
   unsetToken();
 };
-
 export default function HeadNav(props) {
   return (
     <Disclosure as="nav" className={design.navbar}>
@@ -31,9 +31,28 @@ export default function HeadNav(props) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  {/* TODO: OnClick App Switch */}
-                  <ServiceBrandIcon service={props.service} className={`block lg:hidden ${design.navbarBrand}`}/>
-                  <span className={`hidden lg:block ${design.navbarBrand}`}><ServiceBrand service={props.service} /></span>
+                  <Menu as="div" className="hidden relative sm:inline-block">
+                    <Menu.Button className={design.navbarPill}>
+                      <ServiceBrandIcon service={props.service} className={`${design.navbarBrand} mr-2`}/>
+                      <span className={`hidden lg:block ${design.navbarBrand}`}><ServiceBrand service={props.service} /></span>
+                    </Menu.Button>
+                    <Transition
+                    as={Fragment}
+                    enter="transition ease-out duration-100"
+                    enterFrom="transform opacity-0 scale-95"
+                    enterTo="transform opacity-100 scale-100"
+                    leave="transition ease-in duration-75"
+                    leaveFrom="transform opacity-100 scale-100"
+                    leaveTo="transform opacity-0 scale-95"
+                    >
+                        <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-lg shadow-lg focus:outline-none bg-white`}>
+                          <AppSwitchBtn service="cockpit" />
+                          <AppSwitchBtn service="finance" />
+                          <AppSwitchBtn service="hr" />
+                          <AppSwitchBtn service="trader" />
+                        </Menu.Items>
+                    </Transition>
+                </Menu>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <NavBarContent service={props.service} />

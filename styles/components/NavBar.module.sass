@@ -20,11 +20,20 @@
 
 
     .navbarDropdownWrapper
+        @apply rounded-md
+        
         .navbarDropdownMask
+            @apply rounded-md
             background-color: rgba($primary-light-rgb, 0.1)
         
         .navbarDropdownItem
             @apply block px-4 py-2 text-gray-700
+
+            &:first-of-type
+                @apply rounded-t-md
+            
+            &:last-of-type
+                @apply rounded-b-md
 
             &:hover
                 background-color: rgba($primary-light-rgb, 0.2)
@@ -63,3 +72,34 @@
             text-transform: uppercase
             font-size: 0.825rem
             line-height: 1.25rem
+
+.AppSwitchTheme
+    font-size: 1rem
+    &.cockpit
+        background-color: $cockpit-prm
+        color: $white-onprimary 
+    
+    &.finance
+        background-color: $finance-prm
+        color: $white-onprimary 
+
+    &.hr
+        background-color: $hures-prm
+        color: $white-onprimary 
+
+    &.trader
+        background-color: $trader-prm
+        color: $black-onprimary 
+
+.AppSwitchDropdownItem
+    @apply flex p-4
+    font-size: 1rem
+
+    &:hover
+        filter: brightness(0.95)
+
+    &:first-of-type
+        @apply rounded-t-lg
+
+    &:last-of-type
+        @apply rounded-b-lg 

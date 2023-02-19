@@ -28,8 +28,9 @@ export default function NavBarContent(props) {
                     leaveFrom="transform opacity-100 scale-100"
                     leaveTo="transform opacity-0 scale-95"
                     >
-                        <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right rounded-md shadow-lg focus:outline-none`}>
-                            <div className={`py-1 ${design.navbarDropdownMask}`}>
+                        <Menu.Items className={`${design.navbarDropdownWrapper} absolute left-0 z-10 mt-4 w-56 origin-top-right shadow-lg focus:outline-none`}>
+                        
+                            <div className={`${design.navbarDropdownMask}`}>
                                 <Menu.Item>
                                     <a
                                     key={item.parent.name}

@@ -1,5 +1,6 @@
 import { Disclosure } from "@headlessui/react"
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
+import { unsetToken } from "../../lib/auth";
 import { servicenav } from "../../lib/serviceHandler"
 import design from '../../styles/components/NavBar.module.sass';
 
