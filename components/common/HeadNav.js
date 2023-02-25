@@ -1,5 +1,5 @@
 /* jshint esversion:6 */
-import { ServiceBrand, ServiceBrandIcon, servicenav } from '../../lib/serviceHandler';
+import { ServiceBrand, ServiceBrandIcon } from '../../lib/serviceHandler';
 import design from '../../styles/components/NavBar.module.sass';
 import { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
@@ -8,6 +8,7 @@ import { unsetToken } from '../../lib/auth';
 import NavBarContent from '../micro-components/HeadNav_navbarContent';
 import MobileDisclosure from '../micro-components/HeadNav_MobileDisclosure';
 import AppSwitchBtn from '../micro-components/HeadNav_AppSwitch_Btn';
+
 const logout = () => {
   unsetToken();
 };
@@ -31,7 +32,7 @@ export default function HeadNav(props) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Menu as="div" className="hidden relative sm:inline-block">
+                  <Menu as="div" className=" relative hidden sm:inline-block">
                     <Menu.Button className={design.navbarPill}>
                       <ServiceBrandIcon service={props.service} className={`${design.navbarBrand} mr-2`}/>
                       <span className={`hidden lg:block ${design.navbarBrand}`}><ServiceBrand service={props.service} /></span>
@@ -52,7 +53,8 @@ export default function HeadNav(props) {
                           <AppSwitchBtn service="trader" />
                         </Menu.Items>
                     </Transition>
-                </Menu>
+                  </Menu>
+                  <ServiceBrandIcon service={props.service} className={`inline-block sm:hidden ${design.navbarBrand} mr-2`}/>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <NavBarContent service={props.service} />

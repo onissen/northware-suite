@@ -15,3 +15,15 @@ export default function AppSwitchBtn(props) {
 
     )
 }
+
+export function MobileAppSwitchBtn(props) {
+    return (
+        <div className={`w-full ${design.MobileAppSwitchBtn} p-2 ${design.AppSwitchTheme} ${design[props.service]}`}>
+            <a href={`/${props.service}`}
+                className={`w-full ${design.AppSwitchTheme} ${design[props.service]}`}    
+            >
+                <ServiceBrandIcon service={props.service} />
+            </a>
+        </div>
+    )
+}

@@ -3,6 +3,7 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { unsetToken } from "../../lib/auth";
 import { servicenav } from "../../lib/serviceHandler"
 import design from '../../styles/components/NavBar.module.sass';
+import { MobileAppSwitchBtn } from "./HeadNav_AppSwitch_Btn";
 
 export default function MobileDisclosure(props) {
     const navigation = servicenav(props.service);
@@ -105,7 +106,13 @@ export default function MobileDisclosure(props) {
                         </Disclosure.Panel>
                     </>
                         )}
-                    </Disclosure>
+              </Disclosure>
+            </div>
+            <div className={`flex justify-between mt-3` }>
+                {props.service !== 'cockpit' ? ( <MobileAppSwitchBtn service="cockpit" /> ) : (null)}
+                {props.service !== 'finance' ? ( <MobileAppSwitchBtn service="finance" /> ) : (null)}
+                {props.service !== 'hr' ? ( <MobileAppSwitchBtn service="hr" /> ) : (null)}
+                {props.service !== 'trader' ? ( <MobileAppSwitchBtn service="trader" /> ) : (null)}
             </div>
         </Disclosure.Panel>
     )
