@@ -1,5 +1,5 @@
 .wrapper
-    @apply mx-auto max-w-7xl
+    @apply mx-auto max-w-7xl md:px-6 sm:px-4
 
 @tailwind base
 @tailwind components
@@ -21,6 +21,6 @@ body
 .text-primary
     color: $primary
 
-.navpill
-    padding: 0.5rem 0.75rem
-    @apply rounded-lg
+.hamburgernavItem-active
+        background-color: $onprimary
+        color: $primary

@@ -1,0 +1,111 @@
+@import ../_theme
+@import ../sass_var
+
+.navbar
+    background-color: $primary
+    color: $onprimary
+
+.navbarWrapper
+    @apply mx-auto max-w-7xl md:px-6 sm:px-4
+
+    .navbarBrand
+        font-size: 1.25rem
+
+    .navbarPill
+        @apply inline-flex w-full justify-center rounded-md px-4 py-2 mx-2
+
+        &:hover, &:focus
+            background-color: rgba(243, 244, 246, 0.3)
+            color: $onprimary
+
+
+    .navbarDropdownWrapper
+        @apply rounded-md
+        
+        .navbarDropdownMask
+            @apply rounded-md
+            background-color: rgba($primary-light-rgb, 0.1)
+        
+        .navbarDropdownItem
+            @apply block px-4 py-2 text-gray-700
+
+            &:first-of-type
+                @apply rounded-t-md
+            
+            &:last-of-type
+                @apply rounded-b-md
+
+            &:hover
+                background-color: rgba($primary-light-rgb, 0.2)
+
+            &.navbarDropdownItemParent
+                font-weight: 700
+                text-transform: uppercase
+                font-size: 0.825rem
+                line-height: 1.25rem
+    
+    .hamburgerToggle
+        @apply inline-flex items-center justify-center p-2 rounded-md
+    
+.hamburgernavItem
+    &:hover, &:focus
+        background-color: rgba(243, 244, 246, 0.3)
+        color: $onprimary
+        cursor: pointer
+
+.hamburgerDropdownPanel
+    @apply rounded-b-lg
+    background-color: white
+    margin-top: 0 !important
+
+    .hamburgerDropdownPanelMask
+        background-color: rgba($primary-light-rgb, 0.1)
+    
+    .hamburgerDropdownItem
+        @apply text-gray-700 px-4 py-2
+
+        &:hover
+                background-color: rgba($primary-light-rgb, 0.2)
+
+        &.hamburgerDropdownItemParent
+            font-weight: 700
+            text-transform: uppercase
+            font-size: 0.825rem
+            line-height: 1.25rem
+
+.AppSwitchTheme
+    &.cockpit
+        background-color: $cockpit-prm
+        color: $white-onprimary 
+    
+    &.finance
+        background-color: $finance-prm
+        color: $white-onprimary 
+
+    &.hr
+        background-color: $hures-prm
+        color: $white-onprimary 
+
+    &.trader
+        background-color: $trader-prm
+        color: $black-onprimary 
+
+.AppSwitchDropdownItem
+    @apply flex p-4
+    font-size: 1rem
+
+    &:hover
+        filter: brightness(0.95)
+
+    &:first-of-type
+        @apply rounded-t-lg
+
+    &:last-of-type
+        @apply rounded-b-lg 
+
+.MobileAppSwitchBtn
+    text-align: center
+    font-size: 2rem
+    
+    &:hover
+        filter: brightness(0.95)

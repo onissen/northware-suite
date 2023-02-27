@@ -3,6 +3,7 @@ import Router from "next/router";
 import { unsetToken } from "../../lib/auth";
 import { useFetchUser } from "../../lib/authContext";
 import LoadingSpinner from "../specific/LoadingSpinner";
+import HeadNav from "./HeadNav";
 import NWHead from "./NWHead";
 const logout = () => {
   unsetToken();
@@ -27,19 +28,11 @@ export default function Layout ({children, service, siteTitle}) {
   return (
       <>
         <NWHead service={service} siteTitle={siteTitle} />
-        <main>
+
+        {/* <HeadNav service={service} /> */}
+        <HeadNav service={service} />
+        <main className="wrapper">
             {/* Page content:*/}{children}
-            {!loading &&
-              (user ? (
-                <>
-                  <a
-                      className="md:p-2 py-2 block hover:text-purple-400"
-                      onClick={logout}
-                      style={{ cursor: 'pointer' }}
-                  >
-                      Logout
-                  </a>
-                </>) : ('')) }
         </main>
       </>
   )
