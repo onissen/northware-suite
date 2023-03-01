@@ -15,13 +15,11 @@ export const Tabs = ({children, initialTab}) => {
   useEffect(() => {
     if(initialTab.tab){
       setActiveTab(initialTab.tab);
-      console.log(initialTab);
     }
   }, []);
 
   useEffect(() => {
     router.push(`${router.pathname}?tab=${slugify(activeTab)}`, undefined, {shallow: true});
-    console.log(activeTab)
   }, [activeTab])
   
   return(
@@ -31,7 +29,7 @@ export const Tabs = ({children, initialTab}) => {
           const label = tabLabel.props.label
           return (
             <li 
-              className={slugify(label) == activeTab ? design.current : ''}
+              className={slugify(label) == slugify(activeTab) ? design.current : ''}
               key={label}
             >
               <a href="#" onClick={e => {handleClick(e, label)}}>{label}</a>
@@ -40,7 +38,7 @@ export const Tabs = ({children, initialTab}) => {
         })}
       </ul>
       {children.map((child) => {
-        if (slugify(child.props.label) == activeTab)
+        if (slugify(child.props.label) == slugify(activeTab))
           return (
             <div key={child.props.label} className={design.content}>
                 {child.props.children}
