@@ -1,7 +1,7 @@
 /* jshint esversion: 6 */
 import { Router } from "next/router";
 import Layout from "../components/common/Layout";
-import { Tabs } from "../components/common/Window";
+import { Tabs } from "../components/common/Tabs";
 export default function Index({query}) {
   return(
     <Layout service={'cockpit'} siteTitle={'Home'}>
