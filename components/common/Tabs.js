@@ -7,9 +7,6 @@ import design from "../../styles/components/Tabs.module.sass"
 const TabIndex = 0;
 export const Tabs = ({children, initialTab}) => {
   const [activeTab, setActiveTab] = useState(children[0].props.label);
-  console.log(TabIndex);
-  console.log(children[0]);
-  children[0].key = TabIndex + 1;
   const router = useRouter();
   const handleClick = (e, newActiveTab) => {
     e.preventDefault();
@@ -28,24 +25,26 @@ export const Tabs = ({children, initialTab}) => {
   
   return(
     <div>
-      <ul className={design.tabs}>
-        {children.map((tabLabel) => {
-          const label = tabLabel.props.label
+      <ul className={design.TabList}>
+        {children.map((tab) => {
+          const label = tab.props.label
           return (
-            <li 
-              className={slugify(label) == slugify(activeTab) ? design.current : ''}
-              key={label}
-            >
-              <a href="#" onClick={e => {handleClick(e, label)}}>{label}</a>
-            </li>
+            <a href="#" onClick={e => {handleClick(e, label)}}>
+              <li 
+                className={slugify(label) == slugify(activeTab) ? design.TabCurrent : ''}
+                key={label}
+              >
+                {label}
+              </li>
+            </a>
           )
         })}
       </ul>
-      {children.map((child) => {
-        if (slugify(child.props.label) == slugify(activeTab))
+      {children.map((panel) => {
+        if (slugify(panel.props.label) == slugify(activeTab))
           return (
-            <div key={child.props.label} className={design.content}>
-                {child.props.children}
+            <div key={panel.props.label} className={design.TabPanel}>
+                {panel.props.children}
             </div>
           )
       })}

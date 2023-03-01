@@ -1,27 +1,17 @@
-.tabs 
-  list-style: none
-  padding: 0
-  margin: 0
-  display: flex
-  border-bottom: 2px solid blue
+@import ../_theme
+.TabList 
+  @apply flex space-x-1 
+  @apply shadow rounded
 
 
-.tabs > li 
-  padding: 0.5em 1em
-  margin: 0 1em
+  li 
+    padding: 0.5em 1em
+    margin: 0 1em
 
 
-.current 
-  background: white
-  color: blue
+.TabCurrent 
+  border-bottom: 2px solid $primary
   font-weight: bold
-  border: 2px solid blue
-  border-bottom: 0
-  border-top-right-radius: 5px
-  border-top-left-radius: 5px
-  position: relative
-  top: 2px
 
-
-.content 
+.TabPanel 
   padding: 1em 2em
