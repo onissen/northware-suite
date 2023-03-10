@@ -31,6 +31,7 @@ export default function Layout ({children, service, siteTitle}) {
 
         {/* <HeadNav service={service} /> */}
         <HeadNav service={service} />
+        
         <main className="wrapper">
             {/* Page content:*/}{children}
         </main>
